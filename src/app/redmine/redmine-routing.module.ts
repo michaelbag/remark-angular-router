@@ -11,9 +11,9 @@ const redmineRoute: Routes = [
   {
     path: 'projects',
     component: ProjectsComponent,
-    children: [
-      { path: 'project/:id', component: ProjectComponent }
-    ]
+    /*children: [
+      { path: '/project/:id', component: ProjectComponent }
+    ],*/
   }
 ];
 
@@ -22,6 +22,7 @@ const redmineRoute: Routes = [
     CommonModule,
     RouterModule.forChild(redmineRoute)
   ],
+  exports: [ RouterModule ],
   declarations: []
 })
 export class RedmineRoutingModule { }

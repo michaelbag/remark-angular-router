@@ -17,7 +17,6 @@ import { IssueService } from './issue.service';
     RedmineRoutingModule,
     MaterialModule
   ],
-  exports: [RedmineRoutingModule],
   declarations: [
     ProjectsComponent,
     ProjectComponent
