@@ -1,0 +1,39 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; 
+/* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
+
+body { 
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+}
+
+.basic-container {
+  padding: 30px;
+}
+
+.version-info {
+  font-size: 8pt;
+  float: right;
+}
+
+mat-card {
+  margin: 20px 0;
+}
+
+.h2 {
+  margin: 10px;
+}
+
+.section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.margin {
+  margin: 0 10px;
+}
+
+.mat-button {
+  margin: 10px;
+}
