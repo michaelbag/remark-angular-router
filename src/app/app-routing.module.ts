@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 // === Modules
 
+
 const appRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
@@ -16,6 +17,7 @@ const appRoutes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
+    
     RouterModule.forRoot(appRoutes, { enableTracing: true } )
   ],
   exports: [ RouterModule ]
