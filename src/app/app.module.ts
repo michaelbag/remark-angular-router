@@ -10,7 +10,7 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
 import { MaterialModule } from './material/material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { RedmineModule } from './redmine/redmine.module';
-import { ConfigService } from './config.service';
+import { ConfigService } from './config/config.service';
 import { ConfigComponent } from './config/config.component';
 import { MessageService } from './message.service';
 import { DashboardModule } from './dashboard/dashboard.module';

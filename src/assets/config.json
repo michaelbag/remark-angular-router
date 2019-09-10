@@ -1,4 +1,4 @@
 {
-  "rootURL": "assets",
-  "apiKey": "APIAPIAPIAPIA"
+  "redmineUrl": "assets",
+  "redmineApiKey": "APIAPIAPIAPIA"
 }
