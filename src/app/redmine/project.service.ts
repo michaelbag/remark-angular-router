@@ -31,13 +31,28 @@ export class ProjectService {
   constructor(private configService: ConfigService, private http: HttpClient) { }
 
   getProjectsList(): Observable<Projects> {
+    /*
     return
     this.configService.getConfig()
       .pipe(map((configData) => {
-        return
+        console.log(`Projects list URL: ${configData.redmineUrl}/projects.json`);
         this.http.get<Projects>(`${configData.redmineUrl}/projects.json`)
-          .pipe(retry(3))
+          .pipe(retry(3),
+          catchError(this.handleError))
       }));
+    */
+    return (
+      this.http.get<Config>('/assets/config.json')
+        .pipe(switchMap((config: Config) => {
+          
+        }))
+
+      /*
+        .subscribe(config => {
+          return (this.http.get<Projects>('/assets/projects.json')
+            .pipe(retry(3)));
+        })*/
+    );
   }
 
   private handleError(error: HttpErrorResponse) {

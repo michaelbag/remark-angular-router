@@ -1,8 +1,13 @@
 <mat-card>
-  <mat-card-title>Projects List</mat-card-title>
-  <mat-card-content>
-    <h2>Content of projects list.</h2>
-    
+	<mat-card-title>Projects List</mat-card-title>
+	<mat-card-content>
+		<h2>Content of projects list.</h2>
+		<p>Total projects: {{ projects.length() }}</p>
+		<mat-list>
+			<mat-list-item *ngFor="let project of projects">
+				<span>{{ project.name }}</span>
+      </mat-list-item>
+    </mat-list>
 
   </mat-card-content>
 </mat-card>
