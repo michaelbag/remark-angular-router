@@ -1,15 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse, HttpErrorResponse, HttpParams, HttpHeaders, RequestOptions } from '@angular/common/http';
-
-
-
-
-
-
-
-
 import { ConfigService, Config } from '../config/config.service';
 import { Observable, throwError } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { catchError, retry, switchMap } from 'rxjs/operators';
 
 export interface Project {
@@ -35,25 +28,16 @@ export interface Projects {
 @Injectable()
 export class ProjectService {
 
-  constructor(private configService: ConfigService, private http: HttpClient) {
+  constructor(private configService: ConfigService, private http: HttpClient) { }
 
-  }
-// ??????????????????????????????????????
   getProjectsList(): Observable<Projects> {
-    return (
-      this.configService.getConfig()
-        .pipe(switchMap(configData => {
-          this.http.get(`${configData.redmineUrl}/projects.json`, {
-            headers: { 'Access-Control-Allow-Origin': '*', 'X-Redmine-API-Key': configData.redmineApiKey },
-            params: { 'key': configData.redmineApiKey }
-          })
-            .pipe(
-              retry(3),
-              catchError(this.handleError) // then handle the error
-            )
-        }
-        ))
-    );
+    return
+    this.configService.getConfig()
+      .pipe(map((configData) => {
+        return
+        this.http.get<Projects>(`${configData.redmineUrl}/projects.json`)
+          .pipe(retry(3))
+      }));
   }
 
   private handleError(error: HttpErrorResponse) {

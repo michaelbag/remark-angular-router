@@ -17,7 +17,7 @@ export class ConfigService {
 
   constructor(private http: HttpClient) { }
 
-  getConfig() {
+  getConfig():Observable<Config> {
     return this.http.get<Config>(this.configUrl)
       .pipe(
         retry(3),
