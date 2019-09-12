@@ -5,14 +5,15 @@ import { FormsModule } from '@angular/forms';
 // === Components
 import { AppComponent } from './app.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
+import { ConfigComponent } from './config/config.component';
+import { MessageComponent } from './message/message.component';
 
 // === Modules
 import { MaterialModule } from './material/material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { RedmineModule } from './redmine/redmine.module';
-import { ConfigComponent } from './config/config.component';
 import { DashboardModule } from './dashboard/dashboard.module';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
 
 // === service
 import { ConfigService } from './config/config.service';
@@ -21,9 +22,22 @@ import { MessageService } from './message.service';
 // import { httpInterceptorProviders } from './http-interceptors/index';
 
 @NgModule({
-  imports:      [ HttpClientModule, BrowserModule, FormsModule, AppRoutingModule, MaterialModule, RedmineModule, DashboardModule ],
-  declarations: [ AppComponent, MainMenuComponent, ConfigComponent ],
-  bootstrap:    [ AppComponent ],
-  providers: [ ConfigService, MessageService ]
+  imports: [
+    HttpClientModule,
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    MaterialModule,
+    RedmineModule,
+    DashboardModule
+  ],
+  declarations: [
+    AppComponent,
+    MainMenuComponent,
+    ConfigComponent,
+    MessageComponent
+  ],
+  bootstrap: [AppComponent],
+  providers: [ConfigService, MessageService]
 })
 export class AppModule { }
