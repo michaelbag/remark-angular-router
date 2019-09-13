@@ -49,29 +49,29 @@ export class ProjectService {
           catchError(this.handleError))
       }));
     */
-    
+
     if (!this.projectsURL) {
       this.projectsURL = new Subject<string>();
-      this.messageService.add('Should subscribe to config observer into projectService.');
-      this.configService.getConfig()
-        .subscribe((data: Config) => {
-          this.projectsURL.next(data.redmineUrl);
-        });
-    }
-    if (!this.projectsList) {
-      this.messageService.add('Should subscribe to projects observer.');
-      this.projectsList = new Subject<Projects>();
-      this.projectsURL.subscribe({
-        next: (v) => {
-          this.http.get(`${v}/projects.json`).pipe(
-            map((projectsData: Projects) => {
-              this.projectsList.next(projectsData);
-            })
-          );
-        }
-      });
     };
+    this.messageService.add('Should subscribe to config observer into projectService.');
+    this.configService.getConfig()
+      .subscribe((data: Config) => {
+        this.projectsURL.next(data.redmineUrl);
+        this.messageService.add(`Configuration loaded. Projects URL: ${data.redmineUrl}.`);
 
+      });
+
+    if (!this.projectsList) {
+      this.projectsList = new Subject<Projects>();
+    };
+    this.messageService.add('Should subscribe to projects observer.');
+    this.projectsURL.subscribe((v) => {
+      this.http.get(`${v}/projects.json`)
+        .subscribe((projectsData: Projects) => {
+          this.projectsList.next(projectsData);
+        });
+      this.messageService.add(`Try to load ${v}/projects.json`);
+    });
 
     return this.projectsList;
 
