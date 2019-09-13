@@ -9,7 +9,10 @@ import { ConfigComponent } from './config/config.component';
 import { MessageComponent } from './message/message.component';
 
 // === Modules
+// Material {{
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+// }}
 import { AppRoutingModule } from './app-routing.module';
 import { RedmineModule } from './redmine/redmine.module';
 import { DashboardModule } from './dashboard/dashboard.module';
@@ -29,7 +32,8 @@ import { MessageService } from './message.service';
     AppRoutingModule,
     MaterialModule,
     RedmineModule,
-    DashboardModule
+    DashboardModule,
+    BrowserAnimationsModule
   ],
   declarations: [
     AppComponent,
@@ -38,6 +42,7 @@ import { MessageService } from './message.service';
     MessageComponent
   ],
   bootstrap: [AppComponent],
+
   providers: [ConfigService, MessageService]
 })
 export class AppModule { }
