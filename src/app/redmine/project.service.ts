@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse, HttpErrorResponse, HttpParams, HttpHeaders, RequestOptions } from '@angular/common/http';
 import { ConfigService, Config } from '../config/config.service';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { catchError, retry, switchMap } from 'rxjs/operators';
+import { MessageService } from '../message.service';
 
 export interface Project {
   id: number;
@@ -14,7 +15,7 @@ export interface Project {
   is_public: boolean;
   created_on: Date;
   updated_on: Date;
-  homepage: String;
+  homepage: string;
 }
 
 export interface Projects {
@@ -28,7 +29,14 @@ export interface Projects {
 @Injectable()
 export class ProjectService {
 
-  constructor(private configService: ConfigService, private http: HttpClient) { }
+  projectsList: Subject<Projects>;
+  projectsURL: Subject<String>;
+
+  constructor(
+    private configService: ConfigService,
+    private http: HttpClient,
+    private messageService: MessageService
+  ) { }
 
   getProjectsList(): Observable<Projects> {
     /*
@@ -41,18 +49,32 @@ export class ProjectService {
           catchError(this.handleError))
       }));
     */
-    return (
-      this.http.get<Config>('/assets/config.json')
-        .pipe(switchMap((config: Config) => {
-          
-        }))
+    
+    if (!this.projectsURL) {
+      this.projectsURL = new Subject<string>();
+      this.messageService.add('Should subscribe to config observer into projectService.');
+      this.configService.getConfig()
+        .subscribe((data: Config) => {
+          this.projectsURL.next(data.redmineUrl);
+        });
+    }
+    if (!this.projectsList) {
+      this.messageService.add('Should subscribe to projects observer.');
+      this.projectsList = new Subject<Projects>();
+      this.projectsURL.subscribe({
+        next: (v) => {
+          this.http.get(`${v}/projects.json`).pipe(
+            map((projectsData: Projects) => {
+              this.projectsList.next(projectsData);
+            })
+          );
+        }
+      });
+    };
 
-      /*
-        .subscribe(config => {
-          return (this.http.get<Projects>('/assets/projects.json')
-            .pipe(retry(3)));
-        })*/
-    );
+
+    return this.projectsList;
+
   }
 
   private handleError(error: HttpErrorResponse) {

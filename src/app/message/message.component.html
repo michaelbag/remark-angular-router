@@ -1,6 +1,5 @@
-
 <mat-card *ngIf="messageService.messages.length">
-  <mat-card-title>Сообщения</mat-card-title>
+  <mat-card-title>Messages</mat-card-title>
   <mat-nav-list>
   <mat-list-item *ngFor='let message of messageService.messages; let i = index'>{{i+1}}. {{message}}</mat-list-item></mat-nav-list>
   <mat-card-actions>

@@ -4,8 +4,8 @@ import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/htt
 import { catchError, retry } from 'rxjs/operators';
 
 export interface Config {
-  redmineUrl: String;
-  redmineApiKey: String;
+  redmineUrl: string;
+  redmineApiKey: string;
   debug: boolean;
 }
 
