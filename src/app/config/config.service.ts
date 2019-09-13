@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, Subject } from 'rxjs';
 import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { catchError, retry } from 'rxjs/operators';
 
@@ -13,10 +13,12 @@ export interface Config {
 export class ConfigService {
 
   config: Config;
-  config$: Observable<Config>;
+  configObservable: Subject<Config> = new Subject<Config>();
   configUrl = '/assets/config.json';
 
   constructor(private http: HttpClient) { }
+
+
 
   getConfig():Observable<Config> {
     return this.http.get<Config>(this.configUrl)

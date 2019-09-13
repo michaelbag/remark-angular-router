@@ -11,6 +11,8 @@ export class ConfigComponent implements OnInit {
 
   config: Config;
 
+  redmineURL_: string;
+
   constructor(private configService: ConfigService, private messageService: MessageService) { }
 
   ngOnInit() {
@@ -20,6 +22,13 @@ export class ConfigComponent implements OnInit {
         this.gotConfig();
         this.messageService.add('Configuration loaded.');
       });
+
+      this.configService.configObservable.subscribe((v) => this.redmineURL_ = v.redmineUrl);
+  }
+
+  putTestUrl() {
+    let configTest:Config = {redmineUrl: "https://remark.pro/" + (Math.random() * 6) , redmineApiKey: "fewfew", debug: true};
+    this.configService.configObservable.next(configTest);
   }
 
   gotConfig() {
