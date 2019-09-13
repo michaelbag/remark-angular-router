@@ -58,7 +58,6 @@ export class ProjectService {
       .subscribe((data: Config) => {
         this.projectsURL.next(data.redmineUrl);
         this.messageService.add(`Configuration loaded. Projects URL: ${data.redmineUrl}.`);
-
       });
 
     if (!this.projectsList) {
