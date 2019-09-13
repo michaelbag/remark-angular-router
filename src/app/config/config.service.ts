@@ -6,6 +6,7 @@ import { catchError, retry } from 'rxjs/operators';
 export interface Config {
   redmineUrl: String;
   redmineApiKey: String;
+  debug: boolean;
 }
 
 @Injectable()

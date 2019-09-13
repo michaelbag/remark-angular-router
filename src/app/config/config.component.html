@@ -1,3 +1,12 @@
-<p>
-config works!
-</p>
+<mat-card>
+	<mat-card-title>Configuration</mat-card-title>
+	<mat-card-content>
+		<p>redmineUrl: {{config.redmineUrl}}</p>
+		<span *ngIf="config.length">
+      <h3>All parameters of Config</h3>
+		  <ul>
+			  <li *ngFor="let parameter of config">{{ parameter.key }}</li>
+		  </ul>
+    </span>
+	</mat-card-content>
+</mat-card>

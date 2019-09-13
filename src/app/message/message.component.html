@@ -1,3 +1,10 @@
-<mat-card>
-  
+
+<mat-card *ngIf="messageService.messages.length">
+  <mat-card-title>Сообщения</mat-card-title>
+  <mat-nav-list>
+  <mat-list-item *ngFor='let message of messageService.messages; let i = index'>{{i+1}}. {{message}}</mat-list-item></mat-nav-list>
+  <mat-card-actions>
+    <button mat-stroked-button class="clear" (click)="messageService.clear()"><i class="material-icons">delete</i> Clear</button>
+  </mat-card-actions>
 </mat-card>
+<button mat-button (click)="addTestMessage();"><i class="material-icons">add</i> Add test message</button>

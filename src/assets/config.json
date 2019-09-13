@@ -1,4 +1,5 @@
 {
   "redmineUrl": "assets",
-  "redmineApiKey": "APIAPIAPIAPIA"
+  "redmineApiKey": "APIAPIAPIAPIA",
+  "debug": "true"
 }
