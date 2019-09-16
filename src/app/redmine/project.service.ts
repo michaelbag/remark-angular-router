@@ -30,6 +30,7 @@ export interface Projects {
 export class ProjectService {
 
   projectsList: Subject<Projects>;
+  project: Subject<Project>;
   projectsURL: Subject<String>;
 
   constructor(
@@ -37,6 +38,18 @@ export class ProjectService {
     private http: HttpClient,
     private messageService: MessageService
   ) { }
+
+  checkConfig() {
+    if (!this.projectsURL) {
+      this.projectsURL = new Subject<string>();
+    };
+    this.messageService.add('Should subscribe to config observer into projectService.');
+    this.configService.getConfig()
+      .subscribe((data: Config) => {
+        this.projectsURL.next(data.redmineUrl);
+        this.messageService.add(`Configuration loaded. Projects URL: ${data.redmineUrl}.`);
+      });
+  }
 
   getProjectsList(): Observable<Projects> {
     /*
@@ -50,15 +63,9 @@ export class ProjectService {
       }));
     */
 
-    if (!this.projectsURL) {
-      this.projectsURL = new Subject<string>();
-    };
-    this.messageService.add('Should subscribe to config observer into projectService.');
-    this.configService.getConfig()
-      .subscribe((data: Config) => {
-        this.projectsURL.next(data.redmineUrl);
-        this.messageService.add(`Configuration loaded. Projects URL: ${data.redmineUrl}.`);
-      });
+
+
+    this.checkConfig();
 
     if (!this.projectsList) {
       this.projectsList = new Subject<Projects>();
@@ -66,6 +73,8 @@ export class ProjectService {
     this.messageService.add('Should subscribe to projects observer.');
     this.projectsURL.subscribe((v) => {
       this.http.get(`${v}/projects.json`)
+        .pipe(retry(3),
+          catchError(this.handleError))
         .subscribe((projectsData: Projects) => {
           this.projectsList.next(projectsData);
         });
@@ -73,7 +82,25 @@ export class ProjectService {
     });
 
     return this.projectsList;
+  }
 
+  getProject(): Observable<Project> {
+    this.checkConfig();
+    if (!this.project) {
+      this.project = new Subject<Project>();
+    }
+    // TODO: Put here "normal" code without static project id.
+    let id: number = 2;
+    
+    this.projectsURL.subscribe((v) => {
+      this.http.get(`${v}/project/${id}.json`)
+        .pipe(retry(3),
+          catchError(this.handleError))
+        .subscribe((projectData: Project) => {
+          this.project.next(projectData);
+        });
+    });
+    return (this.project);
   }
 
   private handleError(error: HttpErrorResponse) {
