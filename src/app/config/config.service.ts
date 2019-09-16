@@ -13,19 +13,34 @@ export interface Config {
 export class ConfigService {
 
   config: Config;
-  configObservable: Subject<Config> = new Subject<Config>();
+  configObservable: Subject<Config>; // = new Subject<Config>();
   configUrl = '/assets/config.json';
 
   constructor(private http: HttpClient) { }
 
-
-
-  getConfig():Observable<Config> {
-    return this.http.get<Config>(this.configUrl)
+  loadConfig() {
+    this.http.get<Config>(this.configUrl)
       .pipe(
         retry(3),
         catchError(this.handleError)
-      );
+      ).subscribe((configData: Config) => {
+        this.configObservable.next(configData);
+        this.config = configData;
+        // this.configObservable.complete();
+      });
+  }
+
+  reloadConfig() {
+    this.loadConfig();
+  }
+
+  getConfig(): Subject<Config> {
+    if (!this.configObservable) {
+      this.configObservable = new Subject<Config>();
+      
+    }
+    this.reloadConfig();
+    return (this.configObservable);
   }
 
   private handleError(error: HttpErrorResponse) {
