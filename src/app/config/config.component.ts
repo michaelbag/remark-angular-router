@@ -19,16 +19,18 @@ export class ConfigComponent implements OnInit {
     this.configService.getConfig()
       .subscribe((config: Config) => {
         this.config = config;
+        this.redmineURL_ = config.redmineUrl;
         this.gotConfig();
         this.messageService.add('Configuration loaded.');
       });
-
-      this.configService.configObservable.subscribe((v) => this.redmineURL_ = v.redmineUrl);
   }
 
   putTestUrl() {
-    let configTest:Config = {redmineUrl: "https://remark.pro/" + (Math.random() * 6) , redmineApiKey: "fewfew", debug: true};
-    this.configService.configObservable.next(configTest);
+
+    // let configTest:Config = {redmineUrl: "https://remark.pro/" + (Math.random() * 6) , redmineApiKey: "fewfew", debug: true};
+    // this.configService.configObservable.next(configTest);
+    this.configService.reloadConfig();
+
   }
 
   gotConfig() {

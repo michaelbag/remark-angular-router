@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectComponent implements OnInit {
 
+  //TODO: Add service and loading one project information
+
   constructor() { }
 
   ngOnInit() {
