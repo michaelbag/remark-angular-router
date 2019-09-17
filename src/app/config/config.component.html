@@ -1,3 +1,17 @@
-<p>
-config works!
-</p>
+<mat-card>
+	<mat-card-title>Configuration</mat-card-title>
+	<mat-card-content>
+
+		<span *ngIf="config">
+      <h3>All parameters of Config</h3>
+		  {{ config }}
+    </span>
+
+<h3>Config Observable property</h3>
+<p>Redmine URL (from redmineURL_): {{ redmineURL_ }}</p>
+		<p *ngIf="config"> redmineUrl: {{ config.redmineUrl }}</p>
+<a mat-button (click)="putTestUrl();">Put test URL</a>
+
+
+	</mat-card-content>
+</mat-card>

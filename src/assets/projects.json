@@ -1,0 +1,189 @@
+{
+  "projects": [
+    {
+      "id": 2,
+      "name": "Remark support",
+      "identifier": "remark",
+      "description": "Общедоступный раздел системы поддержки пользователей.\nДобро пожаловать!",
+      "status": 1,
+      "is_public": true,
+      "created_on": "2019-02-16T15:38:59Z",
+      "updated_on": "2019-04-26T06:44:36Z"
+    },
+    {
+      "id": 12,
+      "name": "Задачи развития Remark.pro",
+      "identifier": "improvement",
+      "description": "Задачи, переданные в работу по улучшению Remark.pro",
+      "parent": {
+        "id": 2,
+        "name": "Remark support"
+      },
+      "status": 1,
+      "is_public": false,
+      "created_on": "2019-04-26T06:40:02Z",
+      "updated_on": "2019-04-26T06:40:02Z"
+    },
+    {
+      "id": 15,
+      "name": "Личное развитие",
+      "identifier": "private",
+      "description": "",
+      "status": 1,
+      "is_public": false,
+      "created_on": "2019-08-22T06:47:12Z",
+      "updated_on": "2019-08-22T06:47:12Z"
+    },
+    {
+      "id": 5,
+      "name": "НИИ Транснефть",
+      "identifier": "niitn",
+      "description": "",
+      "status": 1,
+      "is_public": false,
+      "created_on": "2019-02-17T19:51:55Z",
+      "updated_on": "2019-02-17T19:51:55Z"
+    },
+    {
+      "id": 3,
+      "name": "Общая поддержка",
+      "identifier": "common",
+      "description": "",
+      "status": 1,
+      "is_public": false,
+      "created_on": "2019-02-16T17:28:57Z",
+      "updated_on": "2019-02-22T05:08:41Z"
+    },
+    {
+      "id": 1,
+      "name": "Рана",
+      "identifier": "rhana",
+      "description": "Общий проект поддержки пользователей Рана",
+      "status": 1,
+      "is_public": false,
+      "created_on": "2019-02-16T15:38:13Z",
+      "updated_on": "2019-04-04T09:40:52Z"
+    },
+    {
+      "id": 9,
+      "name": "CRM2",
+      "identifier": "crm",
+      "description": "Сопровождение информационных систем на базе типовой конфигурации *\"Управление торговлей и взаимоотношениями с клиентами (CRM)\"* на технологической платформы 1С:Предприятие",
+      "parent": {
+        "id": 1,
+        "name": "Рана"
+      },
+      "status": 1,
+      "is_public": false,
+      "created_on": "2019-04-04T09:26:08Z",
+      "updated_on": "2019-04-05T09:47:49Z"
+    },
+    {
+      "id": 4,
+      "name": "CRM3",
+      "identifier": "crm-3",
+      "description": "Задачи по проекту подготовки и ввода в промышленную эксплуатацию конфигурации CRM 3",
+      "parent": {
+        "id": 1,
+        "name": "Рана"
+      },
+      "status": 1,
+      "is_public": false,
+      "created_on": "2019-02-17T11:29:25Z",
+      "updated_on": "2019-05-24T07:41:05Z"
+    },
+    {
+      "id": 7,
+      "name": "БП",
+      "identifier": "buh",
+      "description": "Сопровождение информационных систем на базе типовой конфигурации \"Бухгалтерия предприятия\" на технологической платформы 1С:Предприятие",
+      "parent": {
+        "id": 1,
+        "name": "Рана"
+      },
+      "status": 1,
+      "is_public": false,
+      "created_on": "2019-04-04T09:13:14Z",
+      "updated_on": "2019-04-04T09:33:30Z"
+    },
+    {
+      "id": 8,
+      "name": "ЗУП",
+      "identifier": "zup",
+      "description": "Сопровождение информационных систем на базе типовой конфигурации \"Зарплата и управление персоналом\" на технологической платформы 1С:Предприятие",
+      "parent": {
+        "id": 1,
+        "name": "Рана"
+      },
+      "status": 1,
+      "is_public": false,
+      "created_on": "2019-04-04T09:16:56Z",
+      "updated_on": "2019-04-04T09:33:52Z"
+    },
+    {
+      "id": 14,
+      "name": "КУВ",
+      "identifier": "kuv",
+      "description": "Кабинет управления возрастом",
+      "parent": {
+        "id": 1,
+        "name": "Рана"
+      },
+      "status": 1,
+      "is_public": false,
+      "created_on": "2019-07-11T06:30:04Z",
+      "updated_on": "2019-07-11T06:31:23Z"
+    },
+    {
+      "id": 10,
+      "name": "УТС 7.7",
+      "identifier": "uts",
+      "description": "1С 7.7 Услуги+Торговля+Склад\n\nСопровождение информационных систем на базе типовой конфигурации *\"1С 7.7 Услуги+Торговля+Склад\"* на технологической платформы 1С:Предприятие 7.7",
+      "parent": {
+        "id": 1,
+        "name": "Рана"
+      },
+      "status": 1,
+      "is_public": false,
+      "created_on": "2019-04-04T09:31:58Z",
+      "updated_on": "2019-04-07T19:21:23Z"
+    },
+    {
+      "id": 11,
+      "name": "Фарватер",
+      "identifier": "farwater",
+      "description": "Сопровождение информационных систем на базе типовой конфигурации *\"Фарватер\"* на технологической платформы 1С:Предприятие",
+      "parent": {
+        "id": 1,
+        "name": "Рана"
+      },
+      "status": 1,
+      "is_public": false,
+      "created_on": "2019-04-05T14:48:26Z",
+      "updated_on": "2019-04-05T14:50:49Z"
+    },
+    {
+      "id": 6,
+      "name": "Школа Волшебников",
+      "identifier": "magschool",
+      "description": "",
+      "status": 1,
+      "is_public": false,
+      "created_on": "2019-03-17T19:06:49Z",
+      "updated_on": "2019-03-17T19:06:49Z"
+    },
+    {
+      "id": 13,
+      "name": "ЭВУ",
+      "identifier": "ebv",
+      "description": "ЭВУ (электронная версия учебника)",
+      "status": 1,
+      "is_public": false,
+      "created_on": "2019-04-30T11:32:18Z",
+      "updated_on": "2019-05-03T07:09:22Z"
+    }
+  ],
+  "total_count": 15,
+  "offset": 0,
+  "limit": 25
+}

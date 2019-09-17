@@ -1,0 +1,13 @@
+{
+  "project": {
+    "id": 2,
+    "name": "Remark support",
+    "identifier": "remark",
+    "description": "Общедоступный раздел системы поддержки пользователей.\nДобро пожаловать!",
+    "homepage": "Что такое Remark Support?",
+    "status": 1,
+    "is_public": true,
+    "created_on": "2019-02-16T15:38:59Z",
+    "updated_on": "2019-04-26T06:44:36Z"
+  }
+}

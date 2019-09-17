@@ -8,7 +8,13 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ProjectComponent } from './project/project.component';
 
 const redmineRoute: Routes = [
-  { path: 'projects', component: ProjectsComponent }
+  {
+    path: 'projects', component: ProjectsComponent, children: [
+      { path: 'card/:id', component: ProjectComponent }
+    ]
+  },
+  { path: 'projectqq/:id', component: ProjectComponent }
+
 ];
 
 @NgModule({
@@ -16,7 +22,7 @@ const redmineRoute: Routes = [
     CommonModule,
     RouterModule.forChild(redmineRoute)
   ],
-  exports: [ RouterModule ],
+  exports: [RouterModule],
   declarations: []
 })
 export class RedmineRoutingModule { }

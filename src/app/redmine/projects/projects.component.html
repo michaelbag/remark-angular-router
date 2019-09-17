@@ -1,4 +1,20 @@
+<app-project></app-project>
+
 <mat-card>
-  <mat-card-title>Projects List</mat-card-title>
-  <mat-card-content>Content of projects list.</mat-card-content>
+	<mat-card-title>Projects List</mat-card-title>
+	<mat-card-content>
+		
+    <span *ngIf=" projects ">
+		
+		<mat-nav-list>
+			<mat-list-item *ngFor="let project of projects.projects">
+				<a routerLink="card/{{ project.id }}">{{ project.name }}</a>
+      </mat-list-item>
+    </mat-nav-list>
+    <p>Total projects: {{ projects.projects.length }}</p>
+    </span>
+    <span *ngIf=" !projects ">
+      <h3>Loading...</h3>
+    </span>
+  </mat-card-content>
 </mat-card>
