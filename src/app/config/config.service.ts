@@ -29,6 +29,10 @@ export class ConfigService {
         // this.configObservable.complete();
       });
   }
+  
+  getConfigURL() {
+    return this.configUrl;
+  }
 
   reloadConfig() {
     this.loadConfig();

@@ -26,6 +26,10 @@ export interface Projects {
   limit: number;
 }
 
+export interface ProjectJson {
+  project: Project;
+}
+
 @Injectable()
 export class ProjectService {
 
@@ -84,22 +88,28 @@ export class ProjectService {
     return this.projectsList;
   }
 
-  getProject(): Observable<Project> {
+  getProject(id: string): Observable<Project> {
+
     this.checkConfig();
     if (!this.project) {
       this.project = new Subject<Project>();
     }
+
+    this.messageService.add(`Try to get project from project/${id}.json`);
+
     // TODO: Put here "normal" code without static project id.
-    let id: number = 2;
-    
     this.projectsURL.subscribe((v) => {
       this.http.get(`${v}/project/${id}.json`)
-        .pipe(retry(3),
-          catchError(this.handleError))
-        .subscribe((projectData: Project) => {
-          this.project.next(projectData);
+        .pipe(
+          retry(3),
+          catchError(this.handleError),
+        )
+        .subscribe((projectData: ProjectJson) => {
+          this.project.next(projectData.project);
+          this.messageService.add(`Got project from ${v}/project/${id}.json`);
         });
     });
+
     return (this.project);
   }
 

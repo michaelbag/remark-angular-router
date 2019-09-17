@@ -4,14 +4,12 @@
 
 		<span *ngIf="config">
       <h3>All parameters of Config</h3>
-		  {{ config }}
+      <mat-list>
+        <mat-list-item><label>Redmine URL:</label> {{ config.redmineUrl }}</mat-list-item>
+        <mat-list-item>Redmine URL (from redmineURL_): {{ redmineURL_ }}</mat-list-item>
+      </mat-list>
     </span>
 
-<h3>Config Observable property</h3>
-<p>Redmine URL (from redmineURL_): {{ redmineURL_ }}</p>
-		<p *ngIf="config"> redmineUrl: {{ config.redmineUrl }}</p>
-<a mat-button (click)="putTestUrl();">Put test URL</a>
-
-
 	</mat-card-content>
+  <mat-card-actions><a mat-stroked-button (click)="putTestUrl();">Reload config from {{ configURL }}</a></mat-card-actions>
 </mat-card>

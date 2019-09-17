@@ -8,12 +8,12 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ProjectComponent } from './project/project.component';
 
 const redmineRoute: Routes = [
+  { path: 'project/:id', component: ProjectComponent },
   {
     path: 'projects', component: ProjectsComponent, children: [
-      { path: 'card/:id', component: ProjectComponent }
+      { path: 'detail/:id', component: ProjectComponent }
     ]
-  },
-  { path: 'projectqq/:id', component: ProjectComponent }
+  }
 
 ];
 

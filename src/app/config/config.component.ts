@@ -10,8 +10,8 @@ import {MessageService} from '../message.service';
 export class ConfigComponent implements OnInit {
 
   config: Config;
-
   redmineURL_: string;
+  configURL: string;
 
   constructor(private configService: ConfigService, private messageService: MessageService) { }
 
@@ -23,6 +23,7 @@ export class ConfigComponent implements OnInit {
         this.gotConfig();
         this.messageService.add('Configuration loaded.');
       });
+      this.configURL = this.configService.getConfigURL();
   }
 
   putTestUrl() {
