@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, throwError, Subject } from 'rxjs';
+import { Observable, throwError, Subject, BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { catchError, retry } from 'rxjs/operators';
 
@@ -7,13 +7,20 @@ export interface Config {
   redmineUrl: string;
   redmineApiKey: string;
   debug: boolean;
+  production: boolean;
 }
 
 @Injectable()
 export class ConfigService {
 
-  config: Config;
-  configObservable: Subject<Config>; // = new Subject<Config>();
+  config$: BehaviorSubject<Config>;
+  /* = new BehaviorSubject<Config>({
+    redmineApiKey: '', 
+    redmineUrl: '', 
+    debug: true, 
+    production: false});
+    */
+  configLoaded: boolean = false;
   configUrl = '/assets/config.json';
 
   constructor(private http: HttpClient) { }
@@ -24,9 +31,9 @@ export class ConfigService {
         retry(3),
         catchError(this.handleError)
       ).subscribe((configData: Config) => {
-        this.configObservable.next(configData);
-        this.config = configData;
-        // this.configObservable.complete();
+        this.config$.next(configData);
+        // TODO: Remove. Control it by production parameter in Config.
+        this.configLoaded = true;
       });
   }
   
@@ -38,13 +45,21 @@ export class ConfigService {
     this.loadConfig();
   }
 
-  getConfig(): Subject<Config> {
-    if (!this.configObservable) {
-      this.configObservable = new Subject<Config>();
-      
+  getConfigLoaded() {
+    return this.configLoaded;
+  }
+
+  getConfig(): BehaviorSubject<Config> {
+    if (!this.config$) {
+      this.config$ = new BehaviorSubject<Config>({
+        redmineApiKey: '', 
+        redmineUrl: '', 
+        debug: true, 
+        production: false});
+      this.loadConfig();
     }
-    this.reloadConfig();
-    return (this.configObservable);
+    
+    return (this.config$);
   }
 
   private handleError(error: HttpErrorResponse) {
@@ -60,6 +75,6 @@ export class ConfigService {
     }
     // return an observable with a user-facing error message
     return throwError(
-      'Something bad happened; please try again later.');
+      'Config Service. Something bad happened; please try again later.');
   }
 }

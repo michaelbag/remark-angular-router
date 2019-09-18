@@ -1,13 +1,14 @@
 <mat-card>
 	<mat-card-title>Configuration</mat-card-title>
 	<mat-card-content>
-
 		<span *ngIf="config">
       <h3>All parameters of Config</h3>
       <mat-list>
         <mat-list-item><label>Redmine URL:</label> {{ config.redmineUrl }}</mat-list-item>
-        <mat-list-item>Redmine URL (from redmineURL_): {{ redmineURL_ }}</mat-list-item>
+        <mat-list-item>Redmine API key: {{ config.redmineApiKey }}</mat-list-item>
+        <mat-list-item>Debug: {{ config.debug }}</mat-list-item>
       </mat-list>
+      <p>Configuration loaded from {{configURL}}.</p>
     </span>
 
 	</mat-card-content>
