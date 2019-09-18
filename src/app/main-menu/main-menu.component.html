@@ -1,12 +1,18 @@
-<button mat-button routerLink="/">Dashboard</button>
+<button mat-button routerLink="/"><mat-icon>home</mat-icon> <span>Dashboard</span></button>
 <button mat-button [matMenuTriggerFor]="system">System</button>
 
 <mat-menu #system="matMenu">
-  <button mat-menu-item routerLink="/config" routerLinkActive="active">Config</button>  
+  <button mat-menu-item routerLink="/config" routerLinkActive="active">
+  <mat-icon>settings_applications</mat-icon>
+  <span>Config</span>
+  </button>  
 </mat-menu>
 
 <button mat-button [matMenuTriggerFor]="redmine">Redmine</button>
 <mat-menu #redmine="matMenu">
-  <button mat-menu-item routerLink="/projects" routerLinkActive="active">Projects</button>
+  <button mat-menu-item routerLink="/projects" routerLinkActive="active">
+    <mat-icon>list</mat-icon>
+    <span>Projects</span>
+  </button>
   <button mat-menu-item routerLink="/project/2" routerLinkActive="active">Projects #2</button>
 </mat-menu>
