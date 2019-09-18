@@ -34,20 +34,16 @@ export interface ProjectJson {
 @Injectable()
 export class ProjectService {
 
-  projectsList: Subject<Projects>;
-  project: Subject<Project>;
-  projectsURL: Subject<String>;
-
   constructor(
     private configService: ConfigService,
     private http: HttpClient,
     private messageService: MessageService
   ) { }
 
-  getProject2(id: string): Observable<Project> {
+  getProject(id: string): Observable<Project> {
     return (this.configService.getConfig()
-      .pipe(switchMap((configData: Config) =>
-        this.http.get(`${configData.redmineUrl}/project/${id}.json`)
+      .pipe(switchMap((config: Config) =>
+        this.http.get(`${config.redmineUrl}/project/${id}.json`)
           .pipe(
             retry(3),
             catchError(this.handleError),
@@ -57,102 +53,17 @@ export class ProjectService {
     ); // return getProject2
   }
 
-  getProjectsList2(): Observable<Projects> {
-    // FITIT: Check and fix mistakes in code below.
+  getProjectsList(): Observable<Projects> {
     return (
       this.configService.getConfig()
-        .pipe(
-          switchMap((configData: Config) => {
-            return this.http.get(`${configData.redmineUrl}/projects.json`)
-              .pipe(
-                retry(3),
-                catchError(this.handleError)
-                
-              )
-          }
-          )
-        )
-    ); // return getProjectsList2
-  }
-
-  checkConfig() {
-    if (!this.projectsURL) {
-      this.projectsURL = new Subject<string>();
-    };
-    this.messageService.add('Should subscribe to config observer into projectService.');
-    this.configService.getConfig()
-      .subscribe((data: Config) => {
-        this.projectsURL.next(data.redmineUrl);
-        this.messageService.add(`Configuration loaded. Projects URL: ${data.redmineUrl}.`);
-      });
-  }
-
-  getProjectsList(): Observable<Projects> {
-    /*
-    return
-    this.configService.getConfig()
-      .pipe(map((configData) => {
-        console.log(`Projects list URL: ${configData.redmineUrl}/projects.json`);
-        this.http.get<Projects>(`${configData.redmineUrl}/projects.json`)
-          .pipe(retry(3),
-          catchError(this.handleError))
-      }));
-    */
-
-
-
-    this.checkConfig();
-
-    if (!this.projectsList) {
-      this.projectsList = new Subject<Projects>();
-    };
-    this.messageService.add('Should subscribe to projects observer.');
-    this.projectsURL.subscribe((v) => {
-      this.http.get(`${v}/projects.json`)
-        .pipe(retry(3),
-          catchError(this.handleError))
-        .subscribe((projectsData: Projects) => {
-          this.projectsList.next(projectsData);
-        });
-      this.messageService.add(`Try to load ${v}/projects.json`);
-    });
-
-    return this.projectsList;
-  }
-
-  getProject(id: string): Observable<Project> {
-
-    this.checkConfig();
-    if (!this.project) {
-      this.project = new Subject<Project>();
-    }
-
-    this.messageService.add(`Try to get project from project/${id}.json`);
-
-    this.projectsURL.subscribe((v) => {
-      this.http.get(`${v}/project/${id}.json`)
+      .pipe(switchMap((config:Config) => 
+        this.http.get<Projects>(`${config.redmineUrl}/projects.json`)
         .pipe(
           retry(3),
-          catchError(this.handleError),
-          map(data => {
-            let project = data["project"];
-            return project;
-          })
+          catchError(this.handleError)
         )
-        .subscribe((projectData: Project) => {
-          this.project.next(projectData);
-          this.messageService.add(`Got project from ${v}/project/${id}.json`);
-        });
-
-      /*
-      .subscribe((projectData: ProjectJson) => {
-        this.project.next(projectData.project);
-        this.messageService.add(`Got project from ${v}/project/${id}.json`);
-      });
-      */
-    });
-
-    return (this.project);
+      ))
+    )
   }
 
   private handleError(error: HttpErrorResponse) {

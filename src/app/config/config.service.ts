@@ -7,6 +7,7 @@ export interface Config {
   redmineUrl: string;
   redmineApiKey: string;
   debug: boolean;
+  
   production: boolean;
 }
 

@@ -1,4 +1,12 @@
 <button mat-button routerLink="/">Dashboard</button>
-<button mat-button routerLink="/config" routerLinkActive="active">Config</button>
-<button mat-button routerLink="/projects" routerLinkActive="active">Projects</button>
-<button mat-button routerLink="/project/2" routerLinkActive="active">Projects #2</button>
+<button mat-button [matMenuTriggerFor]="system">System</button>
+
+<mat-menu #system="matMenu">
+  <button mat-menu-item routerLink="/config" routerLinkActive="active">Config</button>  
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="redmine">Redmine</button>
+<mat-menu #redmine="matMenu">
+  <button mat-menu-item routerLink="/projects" routerLinkActive="active">Projects</button>
+  <button mat-menu-item routerLink="/project/2" routerLinkActive="active">Projects #2</button>
+</mat-menu>

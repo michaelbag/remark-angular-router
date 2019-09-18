@@ -25,26 +25,24 @@ export class ProjectComponent implements OnInit {
   ngOnInit() {
     this.title = "Project card";
 
-    // TODO: Insert pure code of subscription to ProjectService (getProject: Observable<Project>)
-
-  let id: string = this.route.snapshot.paramMap.get('id');
-    this.projectService.getProject2(id)
-      .subscribe((projectData: Project) => {
-        this.project = projectData;
-        this.title = `Project ${projectData.name}`;
-      });
-
-/*
     let id: string = this.route.snapshot.paramMap.get('id');
-
-    // TOFIX: зацикливание подписок - что-то непонятно. Надо исправлять.
-
     this.projectService.getProject(id)
       .subscribe((projectData: Project) => {
         this.project = projectData;
-        this.title = `Project ${projectData.name}`;
+        this.title = `${projectData.name} (project)`;
       });
-*/
+
+    /*
+        let id: string = this.route.snapshot.paramMap.get('id');
+    
+        // TOFIX: зацикливание подписок - что-то непонятно. Надо исправлять.
+    
+        this.projectService.getProject(id)
+          .subscribe((projectData: Project) => {
+            this.project = projectData;
+            this.title = `Project ${projectData.name}`;
+          });
+    */
 
   }
 
