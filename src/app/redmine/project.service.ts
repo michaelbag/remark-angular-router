@@ -26,6 +26,7 @@ export interface Projects {
   limit: number;
 }
 
+// TODO: Remove it
 export interface ProjectJson {
   project: Project;
 }
@@ -103,11 +104,22 @@ export class ProjectService {
         .pipe(
           retry(3),
           catchError(this.handleError),
+          map(data => {
+            let project = data["project"];
+            return project;
+          })
         )
+        .subscribe((projectData: Project) => {
+          this.project.next(projectData);
+          this.messageService.add(`Got project from ${v}/project/${id}.json`);
+        });
+  
+        /*
         .subscribe((projectData: ProjectJson) => {
           this.project.next(projectData.project);
           this.messageService.add(`Got project from ${v}/project/${id}.json`);
         });
+        */
     });
 
     return (this.project);
