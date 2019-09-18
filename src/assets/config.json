@@ -2,5 +2,6 @@
   "redmineUrl": "assets",
   "redmineApiKey": "notset",
   "debug": "true",
-  "production": "true"
+  "production": "true",
+  "version": "0.0.1"
 }

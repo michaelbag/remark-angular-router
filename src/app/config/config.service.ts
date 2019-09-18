@@ -7,8 +7,8 @@ export interface Config {
   redmineUrl: string;
   redmineApiKey: string;
   debug: boolean;
-  
   production: boolean;
+  version: string
 }
 
 @Injectable()
@@ -56,7 +56,8 @@ export class ConfigService {
         redmineApiKey: '', 
         redmineUrl: '', 
         debug: true, 
-        production: false});
+        production: false,
+        version: "0.0.0"});
       this.loadConfig();
     }
     

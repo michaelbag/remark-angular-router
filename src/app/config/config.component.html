@@ -5,8 +5,10 @@
       <h3>All parameters of Config</h3>
       <mat-list>
         <mat-list-item><label>Redmine URL:</label> {{ config.redmineUrl }}</mat-list-item>
-        <mat-list-item>Redmine API key: {{ config.redmineApiKey }}</mat-list-item>
+        <mat-list-item>Redmine API key: 
+          <span *ngIf="config.redmineApiKey">***hidden***</span> <span *ngIf="!config.redmineApiKey">NOT SET</span></mat-list-item>
         <mat-list-item>Debug: {{ config.debug }}</mat-list-item>
+        <mat-list-item>Version: {{ config.version }}</mat-list-item>
       </mat-list>
       <p>Configuration loaded from {{configURL}}.</p>
     </span>
