@@ -20,7 +20,7 @@ export interface Project {
 
 export interface Projects {
   projects: Project[];
-  projects$: Observable<Project[]>;
+  // projects$: Observable<Project[]>;
   total_count: number;
   offset: number;
   limit: number;
