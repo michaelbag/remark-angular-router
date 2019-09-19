@@ -8,6 +8,8 @@ import { MessageService } from '../message.service';
 
 import { Project } from './project.service';
 
+// TODO: All objects structure bring to redmine json format
+
 export interface Status {
   id: number;
   name: string;
