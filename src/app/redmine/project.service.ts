@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse, HttpErrorResponse, HttpParams, HttpHeaders, RequestOptions } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpErrorResponse, HttpParams, HttpHeaders } from '@angular/common/http';
 import { ConfigService, Config } from '../config/config.service';
-import { Observable, throwError, Subject } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { catchError, retry, switchMap } from 'rxjs/operators';
 import { MessageService } from '../message.service';
@@ -20,12 +20,13 @@ export interface Project {
 
 export interface Projects {
   projects: Project[];
-  projects$: Observable<Project[]>;
+  // projects$: Observable<Project[]>;
   total_count: number;
   offset: number;
   limit: number;
 }
 
+// TODO: Remove it
 export interface ProjectJson {
   project: Project;
 }
@@ -33,84 +34,36 @@ export interface ProjectJson {
 @Injectable()
 export class ProjectService {
 
-  projectsList: Subject<Projects>;
-  project: Subject<Project>;
-  projectsURL: Subject<String>;
-
   constructor(
     private configService: ConfigService,
     private http: HttpClient,
     private messageService: MessageService
   ) { }
 
-  checkConfig() {
-    if (!this.projectsURL) {
-      this.projectsURL = new Subject<string>();
-    };
-    this.messageService.add('Should subscribe to config observer into projectService.');
-    this.configService.getConfig()
-      .subscribe((data: Config) => {
-        this.projectsURL.next(data.redmineUrl);
-        this.messageService.add(`Configuration loaded. Projects URL: ${data.redmineUrl}.`);
-      });
+  getProject(id: string): Observable<Project> {
+    return (this.configService.getConfig()
+      .pipe(switchMap((config: Config) =>
+        this.http.get(`${config.redmineUrl}/project/${id}.json`, { headers: {'key': config.redmineApiKey } })
+          .pipe(
+            retry(3),
+            catchError(this.handleError),
+            map(data => { return data["project"] })
+          )
+      ))
+    ); // return getProject2
   }
 
   getProjectsList(): Observable<Projects> {
-    /*
-    return
-    this.configService.getConfig()
-      .pipe(map((configData) => {
-        console.log(`Projects list URL: ${configData.redmineUrl}/projects.json`);
-        this.http.get<Projects>(`${configData.redmineUrl}/projects.json`)
-          .pipe(retry(3),
-          catchError(this.handleError))
-      }));
-    */
-
-
-
-    this.checkConfig();
-
-    if (!this.projectsList) {
-      this.projectsList = new Subject<Projects>();
-    };
-    this.messageService.add('Should subscribe to projects observer.');
-    this.projectsURL.subscribe((v) => {
-      this.http.get(`${v}/projects.json`)
-        .pipe(retry(3),
-          catchError(this.handleError))
-        .subscribe((projectsData: Projects) => {
-          this.projectsList.next(projectsData);
-        });
-      this.messageService.add(`Try to load ${v}/projects.json`);
-    });
-
-    return this.projectsList;
-  }
-
-  getProject(id: string): Observable<Project> {
-
-    this.checkConfig();
-    if (!this.project) {
-      this.project = new Subject<Project>();
-    }
-
-    this.messageService.add(`Try to get project from project/${id}.json`);
-
-    // TODO: Put here "normal" code without static project id.
-    this.projectsURL.subscribe((v) => {
-      this.http.get(`${v}/project/${id}.json`)
+    return (
+      this.configService.getConfig()
+      .pipe(switchMap((config:Config) => 
+        this.http.get<Projects>(`${config.redmineUrl}/projects.json`)
         .pipe(
           retry(3),
-          catchError(this.handleError),
+          catchError(this.handleError)
         )
-        .subscribe((projectData: ProjectJson) => {
-          this.project.next(projectData.project);
-          this.messageService.add(`Got project from ${v}/project/${id}.json`);
-        });
-    });
-
-    return (this.project);
+      ))
+    )
   }
 
   private handleError(error: HttpErrorResponse) {
@@ -126,7 +79,7 @@ export class ProjectService {
     }
     // return an observable with a user-facing error message
     return throwError(
-      'Something bad happened; please try again later.');
+      'PtojectService. Something bad happened; please try again later.');
   }
 
 }

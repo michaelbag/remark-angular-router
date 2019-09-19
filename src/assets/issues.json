@@ -1,0 +1,912 @@
+{
+  "issues": [
+    {
+      "id": 546,
+      "project": {
+        "id": 16,
+        "name": "RAC"
+      },
+      "tracker": {
+        "id": 4,
+        "name": "Разработка"
+      },
+      "status": {
+        "id": 1,
+        "name": "Новая"
+      },
+      "priority": {
+        "id": 2,
+        "name": "Нормальный"
+      },
+      "author": {
+        "id": 76,
+        "name": "Кудрявцев (remark) Михаил"
+      },
+      "assigned_to": {
+        "id": 76,
+        "name": "Кудрявцев (remark) Михаил"
+      },
+      "fixed_version": {
+        "id": 28,
+        "name": "0.0.1"
+      },
+      "subject": "Оформление списков",
+      "description": "",
+      "start_date": "2019-09-19",
+      "due_date": null,
+      "done_ratio": 0,
+      "is_private": false,
+      "estimated_hours": null,
+      "custom_fields": [
+        {
+          "id": 5,
+          "name": "Решение",
+          "value": ""
+        },
+        {
+          "id": 12,
+          "name": "Test field (RAC)",
+          "multiple": true,
+          "value": [
+            "30",
+            "31"
+          ]
+        }
+      ],
+      "created_on": "2019-09-19T06:16:19Z",
+      "updated_on": "2019-09-19T07:00:08Z",
+      "closed_on": null
+    },
+    {
+      "id": 545,
+      "project": {
+        "id": 16,
+        "name": "RAC"
+      },
+      "tracker": {
+        "id": 4,
+        "name": "Разработка"
+      },
+      "status": {
+        "id": 1,
+        "name": "Новая"
+      },
+      "priority": {
+        "id": 2,
+        "name": "Нормальный"
+      },
+      "author": {
+        "id": 76,
+        "name": "Кудрявцев (remark) Михаил"
+      },
+      "assigned_to": {
+        "id": 76,
+        "name": "Кудрявцев (remark) Михаил"
+      },
+      "fixed_version": {
+        "id": 28,
+        "name": "0.0.1"
+      },
+      "subject": "Перевод сервисов projectService и. configService на запросы jsonp",
+      "description": "https://www.google.com/url?sa=t\u0026source=web\u0026rct=j\u0026url=https://angular.io/guide/http\u0026ved=2ahUKEwjl8dboltzkAhV85aYKHRGSCIsQFjAAegQIAxAB\u0026usg=AOvVaw0fmNZo-iqn7VnFMAPEom9s",
+      "start_date": "2019-09-19",
+      "due_date": null,
+      "done_ratio": 0,
+      "is_private": false,
+      "estimated_hours": 10.0,
+      "custom_fields": [
+        {
+          "id": 5,
+          "name": "Решение",
+          "value": ""
+        },
+        {
+          "id": 12,
+          "name": "Test field (RAC)",
+          "multiple": true,
+          "value": []
+        }
+      ],
+      "created_on": "2019-09-19T05:55:15Z",
+      "updated_on": "2019-09-19T05:55:15Z",
+      "closed_on": null
+    },
+    {
+      "id": 544,
+      "project": {
+        "id": 16,
+        "name": "RAC"
+      },
+      "tracker": {
+        "id": 4,
+        "name": "Разработка"
+      },
+      "status": {
+        "id": 1,
+        "name": "Новая"
+      },
+      "priority": {
+        "id": 2,
+        "name": "Нормальный"
+      },
+      "author": {
+        "id": 76,
+        "name": "Кудрявцев (remark) Михаил"
+      },
+      "assigned_to": {
+        "id": 76,
+        "name": "Кудрявцев (remark) Михаил"
+      },
+      "fixed_version": {
+        "id": 28,
+        "name": "0.0.1"
+      },
+      "subject": "Проработка запросов объектов с разными свойствами",
+      "description": "Поработать подготовку запросов и обработку json пакетов различной структуры.\r\n\r\nНапример проекты с различной структурой данных в зависимости от ситуации.\r\n\r\nСм. для примера - https://www.redmine.org/projects/redmine/wiki/Rest_Projects",
+      "start_date": "2019-09-23",
+      "due_date": "2019-09-24",
+      "done_ratio": 0,
+      "is_private": false,
+      "estimated_hours": 4.0,
+      "custom_fields": [
+        {
+          "id": 5,
+          "name": "Решение",
+          "value": ""
+        },
+        {
+          "id": 12,
+          "name": "Test field (RAC)",
+          "multiple": true,
+          "value": []
+        }
+      ],
+      "created_on": "2019-09-19T05:35:58Z",
+      "updated_on": "2019-09-19T05:56:58Z",
+      "closed_on": null
+    },
+    {
+      "id": 543,
+      "project": {
+        "id": 16,
+        "name": "RAC"
+      },
+      "tracker": {
+        "id": 4,
+        "name": "Разработка"
+      },
+      "status": {
+        "id": 1,
+        "name": "Новая"
+      },
+      "priority": {
+        "id": 2,
+        "name": "Нормальный"
+      },
+      "author": {
+        "id": 76,
+        "name": "Кудрявцев (remark) Михаил"
+      },
+      "assigned_to": {
+        "id": 76,
+        "name": "Кудрявцев (remark) Михаил"
+      },
+      "fixed_version": {
+        "id": 28,
+        "name": "0.0.1"
+      },
+      "subject": "Давать в приложение toolbar",
+      "description": "https://material.angular.io/components/toolbar/overview",
+      "start_date": "2019-09-19",
+      "due_date": null,
+      "done_ratio": 0,
+      "is_private": false,
+      "estimated_hours": null,
+      "custom_fields": [
+        {
+          "id": 5,
+          "name": "Решение",
+          "value": ""
+        },
+        {
+          "id": 12,
+          "name": "Test field (RAC)",
+          "multiple": true,
+          "value": []
+        }
+      ],
+      "created_on": "2019-09-19T05:28:11Z",
+      "updated_on": "2019-09-19T05:56:58Z",
+      "closed_on": null
+    },
+    {
+      "id": 542,
+      "project": {
+        "id": 16,
+        "name": "RAC"
+      },
+      "tracker": {
+        "id": 4,
+        "name": "Разработка"
+      },
+      "status": {
+        "id": 1,
+        "name": "Новая"
+      },
+      "priority": {
+        "id": 3,
+        "name": "Высокий"
+      },
+      "author": {
+        "id": 76,
+        "name": "Кудрявцев (remark) Михаил"
+      },
+      "assigned_to": {
+        "id": 76,
+        "name": "Кудрявцев (remark) Михаил"
+      },
+      "fixed_version": {
+        "id": 28,
+        "name": "0.0.1"
+      },
+      "subject": "Реализация сервиса issueService",
+      "description": "",
+      "start_date": "2019-09-18",
+      "due_date": "2019-09-20",
+      "done_ratio": 0,
+      "is_private": false,
+      "estimated_hours": 6.0,
+      "custom_fields": [
+        {
+          "id": 5,
+          "name": "Решение",
+          "value": ""
+        },
+        {
+          "id": 12,
+          "name": "Test field (RAC)",
+          "multiple": true,
+          "value": []
+        }
+      ],
+      "created_on": "2019-09-18T20:40:16Z",
+      "updated_on": "2019-09-19T05:56:58Z",
+      "closed_on": null
+    },
+    {
+      "id": 541,
+      "project": {
+        "id": 16,
+        "name": "RAC"
+      },
+      "tracker": {
+        "id": 3,
+        "name": "Поддержка"
+      },
+      "status": {
+        "id": 1,
+        "name": "Новая"
+      },
+      "priority": {
+        "id": 2,
+        "name": "Нормальный"
+      },
+      "author": {
+        "id": 5,
+        "name": "Кудрявцев (rhana) Михаил"
+      },
+      "subject": "Настройка работы redmine с github",
+      "description": "",
+      "start_date": "2019-09-23",
+      "due_date": "2019-09-27",
+      "done_ratio": 0,
+      "is_private": false,
+      "estimated_hours": 3.0,
+      "custom_fields": [
+        {
+          "id": 4,
+          "name": "Причина",
+          "value": ""
+        },
+        {
+          "id": 5,
+          "name": "Решение",
+          "value": ""
+        },
+        {
+          "id": 12,
+          "name": "Test field (RAC)",
+          "multiple": true,
+          "value": []
+        }
+      ],
+      "created_on": "2019-09-18T12:23:50Z",
+      "updated_on": "2019-09-18T20:42:04Z",
+      "closed_on": null
+    },
+    {
+      "id": 535,
+      "project": {
+        "id": 16,
+        "name": "RAC"
+      },
+      "tracker": {
+        "id": 4,
+        "name": "Разработка"
+      },
+      "status": {
+        "id": 1,
+        "name": "Новая"
+      },
+      "priority": {
+        "id": 2,
+        "name": "Нормальный"
+      },
+      "author": {
+        "id": 76,
+        "name": "Кудрявцев (remark) Михаил"
+      },
+      "subject": "Механизм кеширования json в локальном хранилище",
+      "description": "Уже на мобильном приложении нужно реализовать механизм кеширования данных (json) в локальной базе данных или что-то в таком духе.",
+      "start_date": "2019-09-17",
+      "due_date": null,
+      "done_ratio": 0,
+      "is_private": false,
+      "estimated_hours": null,
+      "custom_fields": [
+        {
+          "id": 5,
+          "name": "Решение",
+          "value": ""
+        },
+        {
+          "id": 12,
+          "name": "Test field (RAC)",
+          "multiple": true,
+          "value": []
+        }
+      ],
+      "created_on": "2019-09-17T08:04:53Z",
+      "updated_on": "2019-09-19T05:56:58Z",
+      "closed_on": null
+    },
+    {
+      "id": 523,
+      "project": {
+        "id": 16,
+        "name": "RAC"
+      },
+      "tracker": {
+        "id": 4,
+        "name": "Разработка"
+      },
+      "status": {
+        "id": 1,
+        "name": "Новая"
+      },
+      "priority": {
+        "id": 2,
+        "name": "Нормальный"
+      },
+      "author": {
+        "id": 76,
+        "name": "Кудрявцев (remark) Михаил"
+      },
+      "subject": "В приложении RAC предусмотрет",
+      "description": "",
+      "start_date": "2019-09-11",
+      "due_date": null,
+      "done_ratio": 0,
+      "is_private": false,
+      "estimated_hours": null,
+      "custom_fields": [
+        {
+          "id": 5,
+          "name": "Решение",
+          "value": ""
+        },
+        {
+          "id": 12,
+          "name": "Test field (RAC)",
+          "multiple": true,
+          "value": []
+        }
+      ],
+      "created_on": "2019-09-11T06:05:09Z",
+      "updated_on": "2019-09-19T05:56:58Z",
+      "closed_on": null
+    },
+    {
+      "id": 514,
+      "project": {
+        "id": 16,
+        "name": "RAC"
+      },
+      "tracker": {
+        "id": 4,
+        "name": "Разработка"
+      },
+      "status": {
+        "id": 7,
+        "name": "Приостановлено"
+      },
+      "priority": {
+        "id": 2,
+        "name": "Нормальный"
+      },
+      "author": {
+        "id": 5,
+        "name": "Кудрявцев (rhana) Михаил"
+      },
+      "subject": "Подготовить пример с маршрутизацией проекта",
+      "description": "На подобии классического redmine подготовить пробный проект redmine с маршрутизацией. ",
+      "start_date": "2019-09-23",
+      "due_date": "2019-09-27",
+      "done_ratio": 0,
+      "is_private": false,
+      "estimated_hours": 4.0,
+      "custom_fields": [
+        {
+          "id": 5,
+          "name": "Решение",
+          "value": ""
+        },
+        {
+          "id": 12,
+          "name": "Test field (RAC)",
+          "multiple": true,
+          "value": []
+        }
+      ],
+      "created_on": "2019-09-06T06:03:27Z",
+      "updated_on": "2019-09-19T05:56:57Z",
+      "closed_on": null
+    },
+    {
+      "id": 513,
+      "project": {
+        "id": 16,
+        "name": "RAC"
+      },
+      "tracker": {
+        "id": 3,
+        "name": "Поддержка"
+      },
+      "status": {
+        "id": 1,
+        "name": "Новая"
+      },
+      "priority": {
+        "id": 2,
+        "name": "Нормальный"
+      },
+      "author": {
+        "id": 5,
+        "name": "Кудрявцев (rhana) Михаил"
+      },
+      "assigned_to": {
+        "id": 5,
+        "name": "Кудрявцев (rhana) Михаил"
+      },
+      "fixed_version": {
+        "id": 28,
+        "name": "0.0.1"
+      },
+      "subject": "Поднять чистый проект на github и подключить его к данному проекту",
+      "description": "",
+      "start_date": "2019-09-23",
+      "due_date": "2019-09-27",
+      "done_ratio": 0,
+      "is_private": false,
+      "estimated_hours": 3.0,
+      "custom_fields": [
+        {
+          "id": 4,
+          "name": "Причина",
+          "value": ""
+        },
+        {
+          "id": 5,
+          "name": "Решение",
+          "value": ""
+        },
+        {
+          "id": 12,
+          "name": "Test field (RAC)",
+          "multiple": true,
+          "value": []
+        }
+      ],
+      "created_on": "2019-09-06T06:00:55Z",
+      "updated_on": "2019-09-18T20:41:38Z",
+      "closed_on": null
+    },
+    {
+      "id": 465,
+      "project": {
+        "id": 2,
+        "name": "Remark support"
+      },
+      "tracker": {
+        "id": 1,
+        "name": "Ошибка"
+      },
+      "status": {
+        "id": 1,
+        "name": "Новая"
+      },
+      "priority": {
+        "id": 2,
+        "name": "Нормальный"
+      },
+      "author": {
+        "id": 76,
+        "name": "Кудрявцев (remark) Михаил"
+      },
+      "assigned_to": {
+        "id": 5,
+        "name": "Кудрявцев (rhana) Михаил"
+      },
+      "subject": "Сокращение заголовков письм",
+      "description": "Заметил странность. При загрузке входящих писем и автоматическом создании\r\nзадач в support.remark.pro наименование задач \"режится\" до какой-то длины:\r\n\r\n[image: image.png]\r\n\r\nПри этом - не все заголовки режутся. Может это связано с почтовым ящиком...\r\nможет с наличием английских и русских символов в кодировки utf-8.\r\n\r\n-- \r\n\r\nС уважением, Михаил К.",
+      "start_date": "2019-08-22",
+      "due_date": null,
+      "done_ratio": 0,
+      "is_private": false,
+      "estimated_hours": null,
+      "custom_fields": [
+        {
+          "id": 4,
+          "name": "Причина",
+          "value": ""
+        },
+        {
+          "id": 5,
+          "name": "Решение",
+          "value": ""
+        }
+      ],
+      "created_on": "2019-08-22T07:00:09Z",
+      "updated_on": "2019-08-22T07:15:19Z",
+      "closed_on": null
+    },
+    {
+      "id": 464,
+      "project": {
+        "id": 2,
+        "name": "Remark support"
+      },
+      "tracker": {
+        "id": 1,
+        "name": "Ошибка"
+      },
+      "status": {
+        "id": 1,
+        "name": "Новая"
+      },
+      "priority": {
+        "id": 2,
+        "name": "Нормальный"
+      },
+      "author": {
+        "id": 76,
+        "name": "Кудрявцев (remark) Михаил"
+      },
+      "assigned_to": {
+        "id": 5,
+        "name": "Кудрявцев (rhana) Михаил"
+      },
+      "subject": "Проверка длинных наименован",
+      "description": "Это письмо вдогонку к предыдущему для проверки длинных имен писем.\r\n\r\n-- \r\n\r\nС уважением, Михаил К.",
+      "start_date": "2019-08-22",
+      "due_date": null,
+      "done_ratio": 0,
+      "is_private": false,
+      "estimated_hours": null,
+      "custom_fields": [
+        {
+          "id": 4,
+          "name": "Причина",
+          "value": ""
+        },
+        {
+          "id": 5,
+          "name": "Решение",
+          "value": ""
+        }
+      ],
+      "created_on": "2019-08-22T06:55:08Z",
+      "updated_on": "2019-08-22T06:57:52Z",
+      "closed_on": null
+    },
+    {
+      "id": 462,
+      "project": {
+        "id": 2,
+        "name": "Remark support"
+      },
+      "tracker": {
+        "id": 3,
+        "name": "Поддержка"
+      },
+      "status": {
+        "id": 1,
+        "name": "Новая"
+      },
+      "priority": {
+        "id": 2,
+        "name": "Нормальный"
+      },
+      "author": {
+        "id": 76,
+        "name": "Кудрявцев (remark) Михаил"
+      },
+      "subject": "Настроить резервное копиров",
+      "description": "Настроить резервное копирование на новой системе на базе photon OS.",
+      "start_date": "2019-08-22",
+      "due_date": null,
+      "done_ratio": 0,
+      "is_private": false,
+      "estimated_hours": null,
+      "custom_fields": [
+        {
+          "id": 4,
+          "name": "Причина",
+          "value": ""
+        },
+        {
+          "id": 5,
+          "name": "Решение",
+          "value": ""
+        }
+      ],
+      "created_on": "2019-08-22T06:45:27Z",
+      "updated_on": "2019-08-22T06:58:16Z",
+      "closed_on": null
+    },
+    {
+      "id": 455,
+      "project": {
+        "id": 2,
+        "name": "Remark support"
+      },
+      "tracker": {
+        "id": 3,
+        "name": "Поддержка"
+      },
+      "status": {
+        "id": 1,
+        "name": "Новая"
+      },
+      "priority": {
+        "id": 2,
+        "name": "Нормальный"
+      },
+      "author": {
+        "id": 7,
+        "name": "01 Специалист"
+      },
+      "assigned_to": {
+        "id": 5,
+        "name": "Кудрявцев (rhana) Михаил"
+      },
+      "subject": "Логотип для Remark.pro",
+      "description": "Надо проработать новый логотип для Remark.pro",
+      "start_date": "2019-08-21",
+      "due_date": null,
+      "done_ratio": 0,
+      "is_private": false,
+      "estimated_hours": null,
+      "custom_fields": [
+        {
+          "id": 4,
+          "name": "Причина",
+          "value": ""
+        },
+        {
+          "id": 5,
+          "name": "Решение",
+          "value": ""
+        }
+      ],
+      "created_on": "2019-08-21T13:15:11Z",
+      "updated_on": "2019-08-21T13:22:50Z",
+      "closed_on": null
+    },
+    {
+      "id": 371,
+      "project": {
+        "id": 6,
+        "name": "Школа Волшебников"
+      },
+      "tracker": {
+        "id": 3,
+        "name": "Поддержка"
+      },
+      "status": {
+        "id": 7,
+        "name": "Приостановлено"
+      },
+      "priority": {
+        "id": 2,
+        "name": "Нормальный"
+      },
+      "author": {
+        "id": 5,
+        "name": "Кудрявцев (rhana) Михаил"
+      },
+      "assigned_to": {
+        "id": 5,
+        "name": "Кудрявцев (rhana) Михаил"
+      },
+      "subject": "Поиск удобной и бесплатной CRM системы",
+      "description": "Для обеспечения централизованного хранения и обработки данных по клиентам ШВ необходимо ввести в работу удобную и наименее затратную систему CRM.",
+      "start_date": "2019-06-25",
+      "due_date": "2019-06-28",
+      "done_ratio": 0,
+      "is_private": false,
+      "estimated_hours": null,
+      "custom_fields": [
+        {
+          "id": 4,
+          "name": "Причина",
+          "value": ""
+        },
+        {
+          "id": 5,
+          "name": "Решение",
+          "value": ""
+        }
+      ],
+      "created_on": "2019-06-25T06:01:03Z",
+      "updated_on": "2019-09-05T08:45:38Z",
+      "closed_on": null
+    },
+    {
+      "id": 258,
+      "project": {
+        "id": 6,
+        "name": "Школа Волшебников"
+      },
+      "tracker": {
+        "id": 3,
+        "name": "Поддержка"
+      },
+      "status": {
+        "id": 1,
+        "name": "Новая"
+      },
+      "priority": {
+        "id": 2,
+        "name": "Нормальный"
+      },
+      "author": {
+        "id": 30,
+        "name": "Николаева Анастасия"
+      },
+      "assigned_to": {
+        "id": 36,
+        "name": "Бычкова Алина"
+      },
+      "subject": "Личные книжки ШВ-шников",
+      "description": "Этот проект мы уже частично обсуждали. Что необходимо:\n\n1) Четко продумать концепцию, что это будут за книжки, как называться, как выглядеть.\n2) По наполненности: какой материал внутри, количество страниц, какие рубрики.\n3) Какие понадобятся дополнительные материалы (наклейки, печати...)\n\nАлина, отвечать можно в этой программе. Нажимаешь \"редактировать\" и пишешь в графе \"Решение\". Там будем накидывать идеи, собирать материалы и составлять общую концепцию.",
+      "start_date": "2019-04-16",
+      "due_date": "2019-05-11",
+      "done_ratio": 0,
+      "is_private": false,
+      "estimated_hours": null,
+      "custom_fields": [
+        {
+          "id": 4,
+          "name": "Причина",
+          "value": ""
+        },
+        {
+          "id": 5,
+          "name": "Решение",
+          "value": "НАЗВАНИЕ\nПредлагаю названия:\n\"Книга волшебника\"\n\"Фолиант волшебника\"\n\"Книга стихий\" ----\u003e С этой идеей можно сделать 4-х ступенчатую структуру книжек. Пройтись по стихиям в зависимости от посещения ребенком смен, полученных заслуг и т.д.\n"
+        }
+      ],
+      "created_on": "2019-04-16T08:17:11Z",
+      "updated_on": "2019-04-16T10:05:29Z",
+      "closed_on": null
+    },
+    {
+      "id": 256,
+      "project": {
+        "id": 6,
+        "name": "Школа Волшебников"
+      },
+      "tracker": {
+        "id": 3,
+        "name": "Поддержка"
+      },
+      "status": {
+        "id": 1,
+        "name": "Новая"
+      },
+      "priority": {
+        "id": 2,
+        "name": "Нормальный"
+      },
+      "author": {
+        "id": 30,
+        "name": "Николаева Анастасия"
+      },
+      "assigned_to": {
+        "id": 36,
+        "name": "Бычкова Алина"
+      },
+      "subject": "Видео \"Спектакли ШВ\"",
+      "description": "Прошу составить из фрагментов наших заключительных спектаклей видео для Youtube и будущего сайта. Сопровождаться видео может аудиорядом или текстом, объясняющим, когда проходят спектакли, какие темы затрагиваются, кто участвует и т.д.",
+      "start_date": "2019-04-16",
+      "due_date": "2019-05-17",
+      "done_ratio": 0,
+      "is_private": false,
+      "estimated_hours": null,
+      "custom_fields": [
+        {
+          "id": 4,
+          "name": "Причина",
+          "value": ""
+        },
+        {
+          "id": 5,
+          "name": "Решение",
+          "value": ""
+        }
+      ],
+      "created_on": "2019-04-16T07:49:57Z",
+      "updated_on": "2019-04-16T07:49:57Z",
+      "closed_on": null
+    },
+    {
+      "id": 255,
+      "project": {
+        "id": 6,
+        "name": "Школа Волшебников"
+      },
+      "tracker": {
+        "id": 3,
+        "name": "Поддержка"
+      },
+      "status": {
+        "id": 1,
+        "name": "Новая"
+      },
+      "priority": {
+        "id": 2,
+        "name": "Нормальный"
+      },
+      "author": {
+        "id": 30,
+        "name": "Николаева Анастасия"
+      },
+      "subject": "Подготовка к 1 смене 2019",
+      "description": "!!! Необходимо составить план-сетку для первой смены 2019 \"Величайшее шоу\".\n1) Набрать необходимое количество мероприятий.\n2) Подготовить плей-лист для выступлений.\n3) Продумать декорации, закупить краски, кисти\n4) Купит аква-гримм\n5) Подготовить необходимое количество костюмов: карнавальные, театральные, цирковые\n6) Создать аксессуары: ленты, маракасы...",
+      "start_date": "2019-04-16",
+      "due_date": "2019-05-24",
+      "done_ratio": 0,
+      "is_private": false,
+      "estimated_hours": null,
+      "custom_fields": [
+        {
+          "id": 4,
+          "name": "Причина",
+          "value": ""
+        },
+        {
+          "id": 5,
+          "name": "Решение",
+          "value": ""
+        }
+      ],
+      "created_on": "2019-04-16T07:45:28Z",
+      "updated_on": "2019-04-16T07:45:28Z",
+      "closed_on": null
+    }
+  ],
+  "total_count": 18,
+  "offset": 0,
+  "limit": 25
+}

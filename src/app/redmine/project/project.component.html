@@ -1,9 +1,14 @@
 <mat-card>
   <mat-card-title>{{ title }}</mat-card-title>
   <mat-card-content>
-    <span *ngIf="!project"><h3>Loading...</h3></span>
+    <span *ngIf="!project">
+      <h3>Loading...</h3>
+      <mat-spinner></mat-spinner></span>
     <span *ngIf="project">
       {{ project.description }}
     </span>
   </mat-card-content>
+  <mat-card-actions>
+    <button mat-stroked-button routerLink="/projects" routerLinkActive="active"><i class="material-icons">list</i> Projects list</button>
+  </mat-card-actions>
 </mat-card>

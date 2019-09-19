@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, pluck } from 'rxjs/operators';
 
 // Services 
 import { ProjectService, Project } from '../project.service';
@@ -26,15 +26,23 @@ export class ProjectComponent implements OnInit {
     this.title = "Project card";
 
     let id: string = this.route.snapshot.paramMap.get('id');
-
-    // TOFIX: зацикливание подписок - что-то непонятно. Надо исправлять.
-
     this.projectService.getProject(id)
       .subscribe((projectData: Project) => {
         this.project = projectData;
-        this.title = `Project ${projectData.name}`;
+        this.title = `${projectData.name} (project)`;
       });
 
+    /*
+        let id: string = this.route.snapshot.paramMap.get('id');
+    
+        // TOFIX: зацикливание подписок - что-то непонятно. Надо исправлять.
+    
+        this.projectService.getProject(id)
+          .subscribe((projectData: Project) => {
+            this.project = projectData;
+            this.title = `Project ${projectData.name}`;
+          });
+    */
 
   }
 

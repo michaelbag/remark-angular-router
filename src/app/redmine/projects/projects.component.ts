@@ -11,14 +11,14 @@ export class ProjectsComponent implements OnInit {
   projects: Projects;
 
   constructor(private projectService: ProjectService) { }
-  
+
   ngOnInit() {
-    
+
     this.projectService.getProjectsList()
-      .subscribe( (projectsData) => {
+      .subscribe((projectsData: Projects) => {
         this.projects = projectsData
       });
-    
+
   }
 
 }
