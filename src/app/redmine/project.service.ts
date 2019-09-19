@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse, HttpErrorResponse, HttpParams, HttpHeaders, RequestOptions } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpErrorResponse, HttpParams, HttpHeaders } from '@angular/common/http';
 import { ConfigService, Config } from '../config/config.service';
-import { Observable, throwError, Subject } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { catchError, retry, switchMap } from 'rxjs/operators';
 import { MessageService } from '../message.service';
@@ -43,7 +43,7 @@ export class ProjectService {
   getProject(id: string): Observable<Project> {
     return (this.configService.getConfig()
       .pipe(switchMap((config: Config) =>
-        this.http.get(`${config.redmineUrl}/project/${id}.json`)
+        this.http.get(`${config.redmineUrl}/project/${id}.json`, { headers: {'key': config.redmineApiKey } })
           .pipe(
             retry(3),
             catchError(this.handleError),
