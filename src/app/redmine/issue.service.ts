@@ -37,9 +37,15 @@ export interface CustomFieldValue {
 export interface CustomField {
   id: number;
   name: string;
+  multiple: boolean;
   value: CustomFieldValue;
   values: CustomFieldValue[];
 }
+
+export interface Version {
+  id: number;
+  name: string;
+};
 
 export interface Issue {
   id: number;
@@ -47,16 +53,22 @@ export interface Issue {
   status: Status;
   priority: Priority;
   author: User;
-  category: Category;
+  assined_to: User;
+  fixed_version: Version;
+
+  category: Category; // ???
+
   subject: string;
   description: string;
-  startDate: Date;
-  dueDate: Date;
-  doneRatio: number;
-  estimatedHours: number;
-  customFields: CustomField[];
-  createdOn: Date;
-  updatedOn: Date;
+  start_date: Date;
+  due_date: Date;
+  done_ratio: number;
+  is_private: boolean;
+  estimated_hours: number;
+  custom_fields: CustomField[];
+  created_on: Date;
+  updated_: Date;
+  closed_on: Date;
 
   /*
   <?xml version="1.0" encoding="UTF-8"?>
@@ -99,6 +111,9 @@ export interface Issue {
 
 export interface Issues {
   issues: Issue[];
+  total_count: number;
+  offset: number;
+  limit: number;
 }
 
 @Injectable()
