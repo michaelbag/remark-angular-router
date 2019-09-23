@@ -6,8 +6,10 @@ import { RouterModule, Routes } from '@angular/router';
 // == Components
 import { ProjectsComponent } from './projects/projects.component';
 import { ProjectComponent } from './project/project.component';
+import { IssuesComponent } from './issues/issues.component';
 
 const redmineRoute: Routes = [
+  { path: 'issues', component: IssuesComponent },
   { path: 'project/:id', component: ProjectComponent },
   {
     path: 'projects', component: ProjectsComponent, children: [
