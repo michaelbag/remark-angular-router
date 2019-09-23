@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 import { catchError, retry, switchMap } from 'rxjs/operators';
 import { MessageService } from '../message.service';
 
-import { Project } from './project.service';
+// import { Project } from './project.service';
 
 // TODO: All objects structure bring to redmine json format
 
@@ -38,8 +38,7 @@ export interface CustomField {
   id: number;
   name: string;
   multiple: boolean;
-  value: CustomFieldValue;
-  values: CustomFieldValue[];
+  value: CustomFieldValue | string;
 }
 
 export interface Version {
@@ -47,9 +46,14 @@ export interface Version {
   name: string;
 };
 
+export interface IssueProject { 
+  id: number;
+  name: string;
+};
+
 export interface Issue {
   id: number;
-  project: Project;
+  project: IssueProject;
   status: Status;
   priority: Priority;
   author: User;
@@ -126,32 +130,22 @@ export class IssueService {
     private http: HttpClient,
     private messageService: MessageService) {
 
-    }
+  }
 
-  getIssues():Observable<Issues> {
+  getIssues(): Observable<Issues> {
     return (
       this.configService.getConfig()
-      .pipe(switchMap((config:Config) =>
-
-        this.http.jsonp<Issues>(`${config.redmineUrl}/issues.json?key=${config.redmineApiKey}`, 'callback')
-        .pipe (
-          retry(3), 
-          catchError(this.handleError),
-          map(data => {
-            let issuesData:Issues;
-            issuesData.issues = [];
-
-            // TODO: Mapping of issues.json to Issues type.
-
-
-
-            return issuesData;
-          }))
-
-      ))
+        .pipe(switchMap((config: Config) =>
+          this.http.get<Issues>(`${config.redmineUrl}/issues.json?key=${config.redmineApiKey}`) //, 'callback')
+          /*jsonp<Issues>*/ 
+            .pipe(
+              retry(3),
+              catchError(this.handleError),
+            )
+        ))
     );
   }
-  
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
@@ -165,7 +159,7 @@ export class IssueService {
     }
     // return an observable with a user-facing error message
     return throwError(
-      'PtojectService. Something bad happened; please try again later.');
+      'IssueService. Something bad happened; please try again later.');
   }
 
 }

@@ -10,6 +10,7 @@ import { MaterialModule } from '../material/material.module';
 import { RedmineRoutingModule } from './redmine-routing.module';
 import { ProjectService } from './project.service';
 import { IssueService } from './issue.service';
+import { IssuesComponent } from './issues/issues.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { IssueService } from './issue.service';
   ],
   declarations: [
     ProjectsComponent,
-    ProjectComponent
+    ProjectComponent,
+    IssuesComponent
   ],
   providers: [ProjectService, IssueService]
 })

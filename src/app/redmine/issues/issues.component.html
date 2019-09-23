@@ -1,0 +1,19 @@
+<mat-card>
+	<mat-card-title>Issues</mat-card-title>
+	<mat-card-content>
+		
+    <span *ngIf=" issues ">
+		
+		<mat-nav-list>
+			<mat-list-item *ngFor="let issue of issues.issues">
+				<a  routerLink="/issues/{{ issue.id }}">#{{issue.id}} {{issue.tracker.name}}: <strong>{{ issue.subject }}</strong> </a>
+      </mat-list-item>
+    </mat-nav-list>
+    <p>Total issues: {{ issues.issues.length }}</p>
+    </span>
+    <span *ngIf=" !issues ">
+      <h3>Loading...</h3>
+      <mat-spinner></mat-spinner>
+    </span>
+  </mat-card-content>
+</mat-card>
