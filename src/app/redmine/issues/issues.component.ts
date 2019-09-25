@@ -16,9 +16,9 @@ export class IssuesComponent implements OnInit {
   ngOnInit() {
 
     this.issueService.getIssues()
-    .subscribe((issuesData:Issues) => {
-      this.issues = issuesData;
-    });
+      .subscribe((issuesData: Issues) => {
+        this.issues = issuesData;
+      });
 
   }
 
