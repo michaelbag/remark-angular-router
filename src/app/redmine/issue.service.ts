@@ -146,6 +146,19 @@ export class IssueService {
     );
   }
 
+  getIssue(id: string): Observable<Issue> {
+    return (this.configService.getConfig()
+      .pipe(switchMap((config: Config) =>
+        this.http.get(`${config.redmineUrl}/issue/${id}.json`, { headers: {'key': config.redmineApiKey } })
+          .pipe(
+            retry(3),
+            catchError(this.handleError),
+            map(data => { return data["project"] })
+          )
+      ))
+    ); // return getProject2
+  }  
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

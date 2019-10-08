@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-title>{{ title }}</mat-card-title>
+  <mat-card-content>
+    <span *ngIf="!issue">
+      <h3>Loading...</h3>
+      <mat-spinner></mat-spinner></span>
+    <span *ngIf="issue">
+      #{{ issue.id } }
+    </span>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-stroked-button routerLink="/issues" routerLinkActive="active"><i class="material-icons">list</i> Issues list</button>
+  </mat-card-actions>
+</mat-card>

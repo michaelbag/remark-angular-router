@@ -11,6 +11,7 @@ import { RedmineRoutingModule } from './redmine-routing.module';
 import { ProjectService } from './project.service';
 import { IssueService } from './issue.service';
 import { IssuesComponent } from './issues/issues.component';
+import { IssueComponent } from './issue/issue.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { IssuesComponent } from './issues/issues.component';
   declarations: [
     ProjectsComponent,
     ProjectComponent,
-    IssuesComponent
+    IssuesComponent,
+    IssueComponent
   ],
   providers: [ProjectService, IssueService]
 })
